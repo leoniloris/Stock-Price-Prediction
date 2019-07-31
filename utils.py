@@ -1,16 +1,7 @@
 from abc import ABC, abstractmethod
-from collections import namedtuple
 from functools import reduce
-
 import numpy as np
-
-Sample = namedtuple('Sample', ['windowed_features', 'scalar_features', 'target'])
-
-
-class Model(ABC):
-    @abstractmethod
-    def predict(self, sample: Sample):
-        return 0
+import torch
 
 
 def reconstruct_close_prices_from_log_returns(previous_close, log_returns, normalization_factor):
@@ -30,3 +21,10 @@ def backtest(model, samples):
     ))
 
 
+def flatten_batch_of_samples(samples):
+    samples = [samples] if not isinstance(samples, list) else samples
+    flattened_samples =\
+        map(lambda sample:\
+            np.concatenate([sample.windowed_features.ravel(),
+                            sample.scalar_features]).astype('float32'), samples)
+    return torch.FloatTensor(list(flattened_samples))
