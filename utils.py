@@ -16,15 +16,6 @@ def reconstruct_close_prices_from_log_returns(previous_close, log_returns, norma
     return close_prices
 
 
-def flatten_batch_of_samples(samples):
-    samples = [samples] if not isinstance(samples, list) else samples
-    flattened_samples =\
-        map(lambda sample:\
-            np.concatenate([sample.windowed_features.ravel(),
-                            sample.scalar_features]).astype('float32'), samples)
-    return torch.FloatTensor(list(flattened_samples))
-
-
 def plot_metrics_factory():
     figure_handle = 0
     def plot_metrics(metrics, y_range=[0, 20], title=''):
