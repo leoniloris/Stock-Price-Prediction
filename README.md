@@ -7,7 +7,7 @@ _______
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 python3 get-pip.py --user
 ```
-- Installing requisites:
+- Installing requirements:
 
 ```
 pip3 install -r requirements
