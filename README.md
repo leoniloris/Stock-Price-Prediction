@@ -18,7 +18,7 @@ pip3 install -r requirements
 jupyter notebook stock_price_prediction.ipynb
 ```
     # - Alt + Enter runs one cell and goes to the next one.
-    # - The use can also Ctrl + Shift + P => "run all"
+    # - The user can also Ctrl + Shift + P => "run all"
 
 _______
 
