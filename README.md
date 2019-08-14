@@ -1,4 +1,5 @@
 # Stock price prediction
+### A walk-through on how to lose money on a flip of a coin.
 _______
 
 - System requirements:
